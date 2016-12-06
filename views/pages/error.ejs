@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+    <% include ../partials/head %>
+	</head>
+	<body>
+
+		<div class="backgrounds overlay">
+			<div class="background" data-aos="fade-in" data-aos-duration="1500" data-aos-anchor=".section--hero"></div>
+		</div>
+
+		<header class="hero">
+			<div class="hero-center">
+				<a href="/">
+					<h1 class="hero__logo" data-aos="zoom-in">WTSHTF</h1>
+					<h2 class="hero__text" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="400">When The 💩 Hits The Fan</h2>
+				</a>
+				<div data-aos="fade-down">
+					<%= error %>
+				</div>
+			</div>
+		</header>
+
+    <% include ../partials/footer %>
+	</body>
+</html>
