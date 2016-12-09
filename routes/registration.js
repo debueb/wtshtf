@@ -12,7 +12,6 @@ module.exports = (function() {
         if (err){
           response.render('error', err);
         } else {
-          console.log(user);
           response.render('pages/register-confirm-success');
         }
       })

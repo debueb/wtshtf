@@ -24,7 +24,6 @@ module.exports = (function() {
       if (err){
         callback(err);
       } else {
-        console.log(user);
         if (!user.length || user.length === 0){
           callback('Email not registered');
         } else {
