@@ -18,7 +18,7 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-cron.schedule('* */30 * * *', function(){
+cron.schedule('*/1 * * * *', function(){
   radiationService.check();
 });
 radiationService.check();
