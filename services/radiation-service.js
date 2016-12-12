@@ -5,7 +5,7 @@ module.exports = (function() {
   var emailService = require('./email-service.js'),
       userService = require('./user-service.js'),
       radiationLevels = ['100', '200', '300', '500', '2000'],
-      thresholdLevel = 2;
+      thresholdLevel = 3;
 
   function check() {
     try {
