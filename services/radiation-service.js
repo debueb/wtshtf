@@ -6,7 +6,7 @@ module.exports = (function() {
       radiationstatusService = require('./radiationstatus-service.js'),
       userService = require('./user-service.js'),
       radiationLevels = ['100', '200', '300', '500', '2000'],
-      thresholdLevel = 3,
+      thresholdLevel = 4,
       minHoursBetweenNotifications = 24,
       radiatedPlaces = [ //yep, better make it an array.
         {
