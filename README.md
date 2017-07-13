@@ -26,4 +26,4 @@ export DEFAULT_EMAIL=[DEFAULT EMAIL FOR RUNTIME ERRORS]
 nodemon index.js
 ```
 - chmod 744 run.sh
-- ./run.sh
+- ./run.sh 
