@@ -1,9 +1,9 @@
-var express = require('express'),
+const express = require('express'),
     bodyParser = require('body-parser'),
     cron = require('node-cron'),
-    radiationService = require('./services/radiation-service.js');
+    radiationService = require('./services/radiation-service.js'),
+    app = express();
 
-var app = express();
 app.set('port', (process.env.PORT || 5000));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));

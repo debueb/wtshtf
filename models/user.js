@@ -1,9 +1,9 @@
-var mongoose = require('mongoose'),
+const mongoose = require('mongoose'),
     uuid = require('node-uuid'),
     Schema = mongoose.Schema;
 
 // create a schema
-var userSchema = new Schema({
+const userSchema = new Schema({
     email: { type: String, required: true, unique: true },
     token: String,
     verified: Boolean,
@@ -13,7 +13,7 @@ var userSchema = new Schema({
 
 userSchema.pre('save', function(next) {
   // get the current date
-  var currentDate = new Date();
+  const currentDate = new Date();
 
   // change the updated_at field to current date
   this.updated_at = currentDate;
@@ -29,7 +29,7 @@ userSchema.pre('save', function(next) {
 
 // the schema is useless so far
 // we need to create a model using it
-var User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 // make this available to our users in our Node applications
 module.exports = User;

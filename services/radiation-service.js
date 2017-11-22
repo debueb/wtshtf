@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = (function() {
-  const https = require('https');
-  var emailService = require('./email-service.js'),
+  const https = require('https'),
+      emailService = require('./email-service.js'),
       radiationstatusService = require('./radiationstatus-service.js'),
       userService = require('./user-service.js'),
       radiationLevels = ['100', '200', '300', '500', '2000'],
@@ -18,9 +18,9 @@ module.exports = (function() {
       ];
 
   function distance(lat1, lon1, lat2, lon2) {
-    var p = 0.017453292519943295;    // Math.PI / 180
-    var c = Math.cos;
-    var a = 0.5 - c((lat2 - lat1) * p)/2 +
+    const p = 0.017453292519943295;    // Math.PI / 180
+    const c = Math.cos;
+    const a = 0.5 - c((lat2 - lat1) * p)/2 +
             c(lat1 * p) * c(lat2 * p) *
             (1 - c((lon2 - lon1) * p))/2;
 
@@ -30,14 +30,18 @@ module.exports = (function() {
   function runCheck(){
       https.get('https://redata.jrc.ec.europa.eu//gis/ogc/?Request=Execute&Service=WPS&Version=1.0.0&Language=en-EN&Identifier=HexBinGDRv4&RawDataOutput=dailyValues&DataInputs=bboxInput=-217.79296875000006,47.94929727697105,237.83203125000006,55.93761587980974,urn:ogc:def:crs:EPSG::4326;ZoomLevel=4;format=GeoJson;classification=classified;&_=1480846455686', (res) => {
       if (res.statusCode === 200) {
-        var body = '';
+        let body = '';
         res.on('data', function(chunk) {
           body += chunk;
         });
         res.on('end', function() {
-          var json = JSON.parse(body);
+          const json = JSON.parse(body);
+          json.features.forEach(feature => {
+            
+          })
+          //using traiditional for loop instead of forEach because we need 
           for (let i=0; i<json.features.length; i++){
-            let feature = json.features[i];
+            const feature = json.features[i];
             //filter out all the stations within 100km of chernobyl because they are fucked
             let filterStation = false;
             feature.geometry.coordinates.forEach(function(coordList){
@@ -84,7 +88,7 @@ module.exports = (function() {
         if (error){
           throw(error);
         } else if (radiationStatus){
-          let hoursPassed = (new Date() - radiationStatus.last_successful_check) / 1000 / 60 / 60;
+          const hoursPassed = (new Date() - radiationStatus.last_successful_check) / 1000 / 60 / 60;
           if(hoursPassed > minHoursBetweenNotifications){
             runCheck();
           } else {

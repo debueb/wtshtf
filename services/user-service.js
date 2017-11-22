@@ -2,7 +2,7 @@
 
 module.exports = (function() {
   const url = process.env.MONGO_DB_URL;
-  var mongoose = require('mongoose'),
+  const mongoose = require('mongoose'),
       User = require('../models/user');
 
   mongoose.connect(url, {

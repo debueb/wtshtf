@@ -23,7 +23,7 @@ module.exports = (function() {
     });
 
     route.post('/unregister', function(request, response) {
-      let email = request.body.email;
+      const email = request.body.email;
       if (!validator.isEmail){
         response.render('pages/error', {error: 'Invalid email'});
       } else {
