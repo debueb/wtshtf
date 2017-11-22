@@ -14,7 +14,7 @@ module.exports = (function() {
 
     return client.transmissions.send({
       content: {
-        from: 'wtshtf@appsolve.de',
+        from: process.env.DEFAULT_EMAIL,
         subject: subject,
         text: body
       },
