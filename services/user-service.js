@@ -5,7 +5,9 @@ module.exports = (function() {
   var mongoose = require('mongoose'),
       User = require('../models/user');
 
-  mongoose.connect(url);
+  mongoose.connect(url, {
+    useMongoClient: true,
+  });
 
   function register(email, callback){
     var newUser = User({
