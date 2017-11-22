@@ -11,9 +11,7 @@ repository for https://wtshtf.herokuapp.com, a webapp for gamma radiation alerts
 ## running instructions
 - clone this repo
 - install [node](https://nodejs.org)
-- install [bower](http://bower.io) using `npm install -g bower`
 - install [nodemon](http://nodemon.io) using `npm install -g nodemon`
-- run `bower install`
 - run `npm install`
 - sign up for a hosted mongodb at [mLab](https://mbla.com/)
 - sign up for a hosted mail service at [sparkpost](https://sparkpost.com)
